@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>pager</title>
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .pagerBox {
+      display: table;
+      margin: 0 auto;
+      margin-top: 100px;
+
+      padding: 10px;
+      background-color: #D4D4D4;
+      border-radius: 5px;
+      box-shadow: 0 0 3px #ccc;
+    }
+
+    .pager {
+      display: table;
+    }
+
+    .pager > * {
+      display: table-cell;
+    }
+
+    .pager ol[data-role="pageNumbers"] {
+      list-style: none;
+    }
+
+    .pager ol[data-role="pageNumbers"] li {
+      display: inline-block;
+      vertical-align: middle;
+
+      background: linear-gradient(to bottom, white 0%, #DEDEDE 100%);
+      border: none;
+      box-shadow: 0px 1px 3px 0px #333333;
+      height: 30px;
+      line-height: 30px;
+      padding-left: 3px;
+      padding-right: 3px;
+      border-radius: 5px;
+      margin-right: 10px;
+      width: 30px;
+      text-align: center;
+    }
+    .pager ol[data-role="pageNumbers"] li:active {
+      opacity: 0.1;
+    }
+
+    .pager ol[data-role="pageNumbers"] li.current {
+      background: linear-gradient(to bottom, #DADADA 0%, #D0D0D0 100%);
+    }
+
+    .pager button {
+      /*background-color: rgba(204, 204, 204, 0.2);*/
+      background: linear-gradient(to bottom, white 0%, #DEDEDE 100%);
+      border: none;
+      box-shadow: 0px 1px 3px 0px #333333;
+      height: 30px;
+      line-height: 30px;
+      padding-left: 3px;
+      padding-right: 3px;
+      border-radius: 5px;
+      margin-right: 10px;
+      outline: none;
+    }
+    .pager button:active {
+      opacity: 0.1;
+    }
+    .pager button:last-child {
+      margin-right: 5px;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 点击按钮打印页码 -->
+    <div class="pagerBox">
+<!--       <nav class="pager">
+          <button class="first">首页</button>
+          <button class="prev">上一页</button>
+          <ol data-role="pageNumbers">
+              <li>1</li>
+              <li class="current">2</li>
+              <li>2</li>
+              <li>2</li>
+              <li>2</li>
+              <li>2</li>
+              <li>5</li>
+          </ol>
+          <button class="next">下一页</button>
+          <button class="last">末页</button>
+      </nav>  -->
+    </div>
+
+    <!-- 点击按钮改变浏览器url -->
+    <div class="pagerBox"></div>
+</body>
+<script src="../lib/dom.js"></script>
+<script src="../lib/bom.js"></script>
+<script src="./pager.js"></script>
+<script>
+  let pagers = document.querySelectorAll('.pagerBox')
+  new Pager({
+    element: pagers[0],
+    currentPage: 1,
+    totalPage: 100
+  })
+  pagers[0].addEventListener('pageChange', e => {
+    console.log(e.detail.page)
+  })
+
+  new Pager({
+    element: pagers[1],
+    currentPage: parseInt(bom.queryString.get('page'),10),
+    totalPage: 54,
+    pageQuery: 'page'
+  })
+</script>
+</html>

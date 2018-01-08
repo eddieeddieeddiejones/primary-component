@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .active {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+<div class="a">
+  <li class="active">sd</li>
+  <li class="chila">sdf</li>
+</div>
+<script>
+  const lis = document.querySelectorAll('.a li')
+  var dom = {
+    index: function (el) {
+      if (!el) return
+      var siblings = el.parentNode.children
+      for (var i in siblings) {
+        if(siblings[i] === el) {
+          return i
+        }
+      }
+    },
+    uniqueClass: function (element, className) {
+      // console.log('x')
+      var siblings = element.parentNode.children
+      console.log(siblings)
+      // siblings.forEach(item => {
+      //   console.log(item)
+      //   // item.classList.remove('active')
+      // })
+      // for(var i= 0; i < siblings.length; i ++) {
+      //   siblings[i].classList.remove('active')
+      // }
+      dom.every(element.parentNode.children, (el) => {
+        el.classList.remove('active')
+      })
+      // console.log(this.classList)
+      element.classList.add('active')
+    },
+    every (nodeList, fn) {
+      for(var i= 0; i < nodeList.length; i ++) {
+        fn.call(null, nodeList[i], i)
+      }
+    }
+  }
+  // console.log(lis)
+  lis.forEach(item => {
+    item.onclick = function() {
+      // console.log(1)
+      dom.uniqueClass(this, 'active')
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  </style>
+</head>
+<body>
+<div class="a">
+  <span class="b">sdf</span>
+  <span class="b">sdf</span>
+</div>
+<script>
+ var dom = {
+  on: function (element, eventType, target, fn) {
+    element.addEventListener(eventType, function (e) {
+      var el = e.target
+      while (!el.matches(target)) {
+        if (el === element) {
+          el = null
+          break
+        }
+        el = el.parentNode
+      }
+      el && fn.call(el, e, el)
+    })
+  }
+ }
+ var a = document.querySelector('.a')
+ dom.on(a, 'click', '.a .b', function (e, el) {
+  console.log(e, el)
+ })
+
+ // var b = document.querySelector('.b')
+ // b.onclick = function () {
+ //  console.log(1)
+ // }
+</script>
+</body>
+</html>

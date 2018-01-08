@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>
+  </title>
+</head>
+<body>
+
+<script>
+  const dom = {
+    create: function (html, children) {
+      var template = document.createElement('div')
+      template.innerHTML = html.trim()
+      var node = template.firstChild
+      if (children) {
+        node.appendChild(children)
+      }
+      return node
+    } 
+  }
+  var b = document.createElement('div')
+  var a = dom.create('<li></li>', b)
+  console.log(a)
+</script> 
+</body>
+</html>

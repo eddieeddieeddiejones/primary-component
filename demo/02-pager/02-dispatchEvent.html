@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>
+  </title>
+</head>
+<body>
+  <button class="a">xxx</button>
+  <button class="b">bbb</button>
+  <script>
+    var elem = document.querySelector('.a')
+    var event = new Event('build');
+
+    // Listen for the event.
+    elem.addEventListener('build', function (e) { 
+      console.log('build')
+    }, false);
+
+    elem.dispatchEvent(event);
+
+    // 报错了？？？？？
+    // var b = document.querySelector('.b')
+    // b.addEventListener('click', function (e) {
+    //   // Dispatch the event.
+    //   elem.dispatchEvent(event);
+    // })
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+  var img = document.createElement('img')
+  var img1 = document.createElement('img')
+  img.src = './头像.png'
+  img1.src = './头像1.png'
+  img.onload = function(e) {
+    console.log(e, 'onload')
+  }
+  img.onerror = function (e) {
+    console.log(e, 'onerror')
+  }
+
+  img1.onload = function(e) {
+    console.log(e, 'onload')
+  }
+  img1.onerror = function (e) {
+    console.log(e, 'onerror')
+  }
+</script>
+</body>
+</html>

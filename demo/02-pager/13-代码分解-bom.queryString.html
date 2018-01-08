@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>
+  </title>
+  <style>
+  </style>
+</head>
+<body>
+<script>
+  var queryObject = {}
+  var string = "&page=1"
+  var arr = string.split('&')
+  // 筛掉空字符串
+  var arr1 = arr.filter(i => i)
+  arr1.forEach((string, index) => {
+    let parts = string.split('=')
+    queryObject[parts[0]] = decodeURIComponent(parts[1])
+    return queryObject
+  })
+</script>
+</body>
+</html>

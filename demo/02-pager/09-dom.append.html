@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>
+  </title>
+</head>
+<body>
+  <button class="a">xxx</button>
+  <div class="b"></div>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <script>
+    var dom = {
+      append: function (parent, children) {
+        if (children.length === 'undefined') {
+          children = [children]
+        }
+        for (var i = 0; i < children.length; i ++) {
+          parent.appendChild(children[i])
+        }
+        return parent
+      }
+    }
+    var lis = document.querySelectorAll('li')
+    var b = document.querySelector('.b')
+    dom.append(b, lis)
+    console.log(b)
+  </script>
+</body>
+</html>

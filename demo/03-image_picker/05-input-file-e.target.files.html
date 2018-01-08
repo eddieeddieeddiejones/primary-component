@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" class="a">
+
+<script>
+  var a = document.querySelector('.a')
+  a.addEventListener('change', function (e) {
+    console.log(e)
+    // File(6894) {name: "头像.png", lastModified: 1462090730192, lastModifiedDate: Sun May 01 2016 16:18:50 GMT+0800 (中国标准时间), webkitRelativePath: "", size: 6894, …}
+    console.log(e.target.files[0])
+  })
+</script>
+</body>
+</html>

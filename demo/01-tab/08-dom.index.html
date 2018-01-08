@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<div class="a">
+  <li>sd</li>
+  <li class="chila">sdf</li>
+</div>
+<script>
+  // const a = document.querySelector('.chila')
+  const a = document.querySelector('.chiladfg')
+  var dom = {
+    index: function (el) {
+      if (!el) return
+      var siblings = el.parentNode.children
+      console.log(siblings)
+      for (var i in siblings) {
+        if(siblings[i] === el) {
+          return i
+        }
+      }
+    }
+  }
+  console.log(dom.index(a))
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>
+  </title>
+</head>
+<body>
+
+<script>
+  // 自定义标签在html中不会报错，document.querySelector也能获取到自定义标签
+  // var a = document.createElement('nav')
+  var a = document.createElement('sdfsd')
+  a.innerText = 'haha'
+  console.log(a)
+  document.body.appendChild(a)
+  var b = document.querySelector('sdfsd')
+  console.log(b)
+</script> 
+</body>
+</html>

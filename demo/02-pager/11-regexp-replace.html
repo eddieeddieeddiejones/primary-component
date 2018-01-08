@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>
+  </title>
+</head>
+<body>
+  <script>
+    var regexp = /(page)=([^&]*)/
+    var search = "?&page=1"
+    // ?&page=10
+    console.log(search.replace(regexp, (match, c1, c2) => `${c1}=${encodeURIComponent(10)}`))
+  </script>
+</body>
+</html>

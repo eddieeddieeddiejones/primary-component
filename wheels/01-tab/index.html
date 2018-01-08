@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      background-color: #E2DED2;
+    }
+    ul, li {
+      list-style: none;
+    }
+    .mytab {
+      width: 400px;
+      /*height: 200px;*/
+      margin: 0 auto;
+      margin-top: 50px;
+      background: repeating-linear-gradient( -45deg, #D7D3C7, #D7D3C7 2px, #CECABE 4px, #CECABE 4px);
+      padding: 10px;
+    }
+    .mytab .box {
+      background-color: #fff;
+    }
+    .mytab .box .nav {
+      display: flex;
+    }
+    .mytab .box .nav li {
+      flex: 1;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      background: linear-gradient(to bottom, #e5dfd3 0%,#d0c9b8 100%);
+    }
+    .mytab .box .nav li.active {
+      background: linear-gradient(to bottom, white 0%,#F0EDE6 100%);
+    }
+    .mytab .box .content {
+      display: flex;
+      height: 300px;
+      /*overflow: hidden;*/
+      justify-content: center;
+      align-items: center;
+      background-color: #F0EDE6;
+    }
+    .mytab .box .content li {
+      display: none;
+    }
+    .mytab .box .content li.active {
+      display: block;
+    }
+    .mytab .box .content li div{
+      width: 50px;
+      height: 50px;
+      background-color: #DFDCD3;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+ <div class="mytab">
+  <div class="box">
+    <ul class="nav" data-role="tabs-nav">
+     <li>how buying works</li>
+     <li class="active">how selling works</li>
+    </ul>
+    <ul class="content" data-role="tabs-panes">
+     <li>
+       <div>1</div>
+     </li>
+     <li class="active">
+       <div>2</div>
+     </li>
+    </ul>
+  </div>
+ </div>
+
+<script src="./tab.js"></script>
+<script src="../lib/dom.js"></script>
+<script>
+  // console.log(document.querySelectorAll('.mytab')[0])
+  new Tabs({
+    element: document.querySelectorAll('.mytab')[0]
+  })
+</script>
+</body>
+</html>

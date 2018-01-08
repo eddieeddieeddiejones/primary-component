@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>
+  </title>
+  <style>
+  </style>
+</head>
+<body>
+<script>
+  // dataset
+  const dom = {
+    create: function (html, children) {
+      var template = document.createElement('div')
+      template.innerHTML = html.trim()
+      var node = template.firstChild
+      if (children) {
+        node.appendChild(children)
+      }
+      return node
+    } 
+  }
+  var b = 2
+  var a = dom.create(`<div class="a" data-page="${b}"></div>`)
+  document.body.appendChild(a)
+  // 2
+  console.log(a.dataset.page)
+</script>
+</body>
+</html>
